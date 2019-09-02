@@ -1,6 +1,6 @@
 {
   "name": "lzb-pagination",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a plugin of pagination",
   "main": "dist/pagination.min.js",
   "repository": {
@@ -19,7 +19,7 @@
     "test:coverage": "jest --coverage",
     "deploy": "git checkout -b gh-pages && git pull origin gh-pages && git push origin gh-pages:gh-pages && git checkout master && git branch -D gh-pages"
   },
-  "homepage": "https://lvzhenbang.github.io/tab/dist/",
+  "homepage": "https://lvzhenbang.github.io/pagination/dist/",
   "dependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
