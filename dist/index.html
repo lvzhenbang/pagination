@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pagination</title>
+  <style>
+    h2 {
+      text-align: center;
+    }
+    section {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    section+section {
+      margin-top: 10px;
+    }
+    .tip {
+      margin-top: 10px;
+      font-style: italic;
+    }
+    .pagination {
+      display: flex;
+    }
+    .btn {
+      border: 1px solid blueviolet;
+      border-radius: 3px;
+      width: 2em;
+      height: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .page-inner {
+      display: flex;
+      margin: 0 .5em;
+    }
+    .page-inner .btn+.btn {
+      margin-left: .5em;
+    }
+    .btn.active {
+      color: #fff;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pagination.js</h2>
+  <section>
+    <h4>options: this.totalVisible = 2</h4>
+    <div class="pagination demo1"></div>
+    <div class="tip">注：‘this.totalVisble &lt; 3’，只显示一个页码</div>
+  </section>
+
+  <section>
+    <h4>options: this.totalVisible = 5</h4>
+    <div class="pagination demo2"></div>
+    <div class="tip">注：‘this.totalVisble &gt; 3 && this.totalvisible &lt; 7’，显示定义数值个数的页码</div>
+  </section>
+
+  <section>
+    <h4>options: this.totalVisible = 7</h4>
+    <div class="pagination demo3"></div>
+    <div class="tip">注：‘this.totalvisible &gt; 7’，显示定义数值个数的页码</div>
+  </section>
+
+  <section>
+    <h4>options: this.totalVisible = 8</h4>
+    <div class="pagination demo4"></div>
+  </section>
+<script type="text/javascript" src="pagination.min.js"></script></body>
+<script>
+  var page1 = new Pagination(document.querySelector('.demo1'), {
+    totalVisble: 2,
+    length: 11,
+    value: 2,
+  });
+  var page2 = new Pagination(document.querySelector('.demo2'), {
+    totalVisble: 5,
+    length: 13,
+    value: 2,
+    type: false,
+    onPageClick: function() {
+      console.log('***demo2***');
+      console.log('The current page number: ', this.value);
+    }
+  });
+  var page3 = new Pagination(document.querySelector('.demo3'), {
+    totalVisble: 7,
+    length: 13,
+    value: 3,
+    onPageClick: function() {
+      console.log('***demo3***');
+      console.log('The current page number: ', this.value);
+    }
+  });
+  
+  var page4 = new Pagination(document.querySelector('.demo4'), {
+    totalVisble: 8,
+    length: 18,
+    value: 3,
+    onPageClick: function() {
+      console.log('***demo3***');
+      console.log('The current page number: ', this.value);
+    }
+  });
+</script>
+</html>
