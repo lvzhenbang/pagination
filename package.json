@@ -1,6 +1,6 @@
 {
   "name": "lzb-pagination",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a plugin of pagination",
   "main": "dist/pagination.min.js",
   "repository": {
