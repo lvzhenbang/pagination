@@ -18,6 +18,14 @@ class Pagination {
   }
 
   init() {
+    if (!this.$el) {
+      try {
+        throw new Error('The target element must exist.');
+      } catch {
+        return;
+      }
+    }
+
     if (this.options.totalVisble > this.options.length) {
       throw new Error(`The 'this.options.totalVisble:' ${this.options.totalVisble} must be less than the 'this.options.length': ${this.options.length}`);
     }
