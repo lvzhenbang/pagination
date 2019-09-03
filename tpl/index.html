@@ -59,6 +59,12 @@
   </section>
 
   <section>
+    <h4>options: this.totalVisible = 5 && this.control = false</h4>
+    <div class="pagination demo22"></div>
+    <div class="tip">注：‘this.totalVisble &lt; 5’，只显示一个页码，不显示左右控制按钮</div>
+  </section>
+
+  <section>
     <h4>options: this.totalVisible = 5</h4>
     <div class="pagination demo2"></div>
     <div class="tip">注：‘this.totalVisble &gt; 3 && this.totalvisible &lt; 7’，显示定义数值个数的页码</div>
@@ -80,6 +86,17 @@
     totalVisble: 2,
     length: 11,
     value: 2,
+  });
+  var page2 = new Pagination(document.querySelector('.demo22'), {
+    totalVisble: 5,
+    length: 13,
+    value: 2,
+    type: false,
+    control: false,
+    onPageClick: function() {
+      console.log('***demo2***');
+      console.log('The current page number: ', this.value);
+    }
   });
   var page2 = new Pagination(document.querySelector('.demo2'), {
     totalVisble: 5,

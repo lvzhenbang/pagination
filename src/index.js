@@ -21,10 +21,16 @@ class Pagination {
     if (this.options.totalVisble > this.options.length) {
       throw new Error(`The 'this.options.totalVisble:' ${this.options.totalVisble} must be less than the 'this.options.length': ${this.options.length}`);
     }
+    this.reRender();
+  }
+
+  reRender() {
     this.$el.innerHTML = '';
-    this.genPrev();
     this.genItems();
-    this.genNext();
+    if (this.options.control) {
+      this.genPrev();
+      this.genNext();
+    }
   }
 
   genPrev() {
@@ -33,7 +39,7 @@ class Pagination {
     prevEl.classList.add('prev');
     prevEl.innerHTML = '&lt;';
     this.triggerClick(prevEl, this.pagePrev.bind(this));
-    this.$el.appendChild(prevEl);
+    this.$el.insertBefore(prevEl, this.$el.firstChild);
   }
 
   genNext() {
@@ -114,13 +120,13 @@ class Pagination {
   pageNext() {
     if (this.value >= this.options.length) return;
     this.value += 1;
-    this.init();
+    this.reRender();
   }
 
   pagePrev() {
     if (this.value <= 1) return;
     this.value -= 1;
-    this.init();
+    this.reRender();
   }
 
   pageCurrent(e) {

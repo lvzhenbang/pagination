@@ -3,6 +3,7 @@ const defaults = {
   length: 0,
   value: 1,
   type: '...',
+  control: true,
   onPageClick: null,
 };
 
